@@ -1,70 +1,110 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-@font-face { font-family: 'DIN Alternate'; src: url('../fonts/DINAlternate-Bold.woff'); } 
+
+@font-face {
+  font-family: 'DIN Alternate';
+  src: url('../fonts/DINAlternate-Bold.woff');
+}
 
 body {
-    color: white;
-    font-family: 'DIN Alternate', sans-serif;
-    background-color: #0A1715;
-    display: grid;
-    /* grid-template-columns: auto auto; */
-    gap: 50px;
+  color: white;
+  font-family: 'DIN Alternate', sans-serif;
+  background-color: #0A1715;
+  display: grid;
+  gap: 30px; /* Adjusted gap */
+  padding: 20px; /* Added padding around the edges */
 }
 
 .container {
-    display: grid;
-    place-items: center
+  display: grid;
+  place-items: center;
+  padding: 0 10px; /* Additional padding for smaller screens */
 }
 
-
+/* Responsive button styles */
 .download-btn {
-    background-color: #808e9b; /* Green color */
-    color: #ffffff; /* White text color */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 10px 20px; /* Padding for the button */
-    font-family: 'Arial', sans-serif; /* Font family */
-    font-size: 16px; /* Font size */
-    display: flex; /* Flexbox to align icon and text */
-    align-items: center; /* Center alignment */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
-    cursor: pointer; /* Pointer cursor on hover */
-    max-width: 350px;
-  }
-  
+  background-color: #808e9b; /* Green color */
+  color: #ffffff; /* White text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Padding for the button */
+  font-family: 'Arial', sans-serif; /* Font family */
+  font-size: 16px; /* Font size */
+  display: flex; /* Flexbox to align icon and text */
+  align-items: center; /* Center alignment */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  cursor: pointer; /* Pointer cursor on hover */
+  max-width: 350px;
+}
+
 .download-btn .icon {
-margin-right: 10px; /* Space between icon and text */
-font-size: 20px; /* Icon size */
+  margin-right: 10px; /* Space between icon and text */
+  font-size: 20px; /* Icon size */
 }
 
 .download-btn:hover {
-background-color: #626d77; /* Darker green on hover */
+  background-color: #626d77; /* Darker green on hover */
 }
 
 .download-btn:active {
-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2); /* Reduced shadow on click */
-transform: translateY(2px); /* Button pressed effect */
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2); /* Reduced shadow on click */
+  transform: translateY(2px); /* Button pressed effect */
 }
 
 #emissary-section h2,
-#drawbridge-section h2
-{
-    margin-top: 0;
+#drawbridge-section h2 {
+  margin-top: 0;
 }
 
 .grid-list {
-    display: grid;
-    grid-auto-flow: column;
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove default padding */
-    margin-top: 15px; 
-  }
-  
-  .grid-list li {
-    margin: 0 10px; /* Add some spacing between items, adjust as needed */
-  }
+  display: grid;
+  grid-auto-flow: column;
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  margin-top: 15px;
+}
+
+.grid-list li {
+  margin: 0 10px; /* Add some spacing between items, adjust as needed */
+}
 
 li a {
-    text-decoration: none; /* Remove underlining */
+  text-decoration: none; /* Remove underlining */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .container {
+    gap: 30px; /* Reduce gap on small screens */
+    padding: 10px; /* Additional padding for smaller screens */
+  }
+
+  .download-btn {
+    font-size: 14px; /* Smaller font size on small screens */
+    padding: 8px 16px; /* Adjust padding on small screens */
+    max-width: 100%; /* Full width on small screens */
+  }
+
+  .grid-list {
+    grid-auto-flow: row;
+    justify-items: center;
+  }
+
+  .grid-list li {
+    margin: 10px 0; /* Adjust spacing for vertical alignment */
+  }
+}
+
+/* Image resizing based on viewport */
+.responsive-image {
+  width: 100%;
+  max-width: 400px; /* Maximum width for larger screens */
+  height: auto; /* Maintain aspect ratio */
+  margin: 0 auto; /* Center the image */
+}
+
+/* Reduce space between paragraphs */
+p {
+  margin-bottom: 10px; /* Reduced space between paragraphs */
 }
