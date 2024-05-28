@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./index.css" />
+    <title>Drawbridge Reverse Proxy</title>
+</head>
+
+<body>
+    <div class="container" id="drawbridge-section">
+        <h1>Drawbridge</h1>
+        <h2>A reverse proxy to protect your applications with mTLS</h2>
+        <img src="images/drawbridge_400.webp" height="400px" width="400px">
+        <p>Drawbridge is a deny-by-default reverse proxy that sits between the Internet and your self-hosted
+            applications.</p>
+        <p>You own your encryption keys
+            and can protect any TCP application with mTLS. Simpler than running a minecraft server.
+        </p>
+        <p><a
+                href="https://github.com/dhens/Drawbridge/wiki/Latest-Quick%E2%80%90Start-Guide-for-Drawbridge-and-Emissary-%E2%80%90-Minecraft-Server">Click
+                here to quickly protect your applications with Drawbridge.</a></p>
+        <ul class="grid-list">
+            <li>
+                <a href="https://" target="_blank" id="windowsamd64">
+                    <button class="download-btn">
+                        <img src="images/microsoft-fill.svg">
+                        Windows (amd64)
+                    </button>
+                </a>
+            </li>
+            <li>
+                <a href="https://" target="_blank" id="macosarm64">
+                    <button class="download-btn">
+                        <img src="images/apple-fill.svg">
+                        macOS (Apple Silicon)
+                    </button>
+                </a>
+            </li>
+            <li>
+                <a href="https://" target="_blank" id="linuxamd64">
+                    <button class="download-btn">
+                        <img src="images/qq-fill.svg">
+                        Linux (amd64)
+                    </button>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/dhens/Drawbridge" target="_blank">
+                    <button class="download-btn">
+                        <img src="images/github-fill.svg">
+                        GitHub
+                    </button>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container" id="emissary-section">
+        <h1>Emissary</h1>
+        <h2>An mTLS client - Required to securely connect to Drawbridge</h2>
+        <img src="images/emissary_7xx.webp" height="400px" width="400px">
+        <p>For Windows, macOS, and Linux endpoints, Emissary should only be downloaded via the Drawbridge Dashboard via
+            the
+            Emissary Bundle
+            feature.</p>
+        <p>Emissary creates a tunnel to Protected Services, protected by Drawbridge. </p>
+        <ul class="grid-list">
+            <li>
+                <a href="https://" target="_blank" id="android">
+                    <button class="download-btn">
+                        <img src="images/android-fill.svg">
+                        Android (amd64)
+                    </button>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/dhens/Emissary-Daemon" target="_blank">
+                    <button class="download-btn">
+                        <img src="images/github-fill.svg">
+                        GitHub - Emissary for Desktops
+                    </button>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/dhens/Emissary-Android" target="_blank">
+                    <button class="download-btn">
+                        <img src="images/github-fill.svg">
+                        GitHub - Emissary for Android
+                    </button>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    fetch("https://api.github.com/repos/dhens/Drawbridge/releases/latest")
+        .then(response => response.json())
+        .then(body => {
+            for (let i = 0; i < body.assets.length; i++) {
+                const asset = body.assets[i]
+                const isZipFile = asset.name.substring(asset.name.length - 4) === ".zip"
+                if (asset.name.includes("Drawbridge_linux_amd64") && isZipFile) {
+                    document.getElementById("linuxamd64").href = asset.browser_download_url
+                }
+                else if (asset.name.includes("Drawbridge_windows_amd64") && isZipFile) {
+                    document.getElementById("windowsamd64").href = asset.browser_download_url
+                }
+                else if (asset.name.includes("Drawbridge_macos_arm64") && isZipFile) {
+                    document.getElementById("macosarm64").href = asset.browser_download_url
+                }
+            }
+        })
+
+    fetch("https://api.github.com/repos/dhens/Emissary-Android/releases/latest")
+        .then(response => response.json())
+        .then(body => {
+            for (let i = 0; i < body.assets.length; i++) {
+                const asset = body.assets[i]
+                const isZipFile = asset.name.substring(asset.name.length - 4) === ".zip"
+                if (asset.name.includes("emissary-android") && isZipFile) {
+                    document.getElementById("android").href = asset.browser_download_url
+                }
+            }
+        })
+</script>

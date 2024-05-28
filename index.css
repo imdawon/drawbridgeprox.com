@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+}
+@font-face { font-family: 'DIN Alternate'; src: url('../fonts/DINAlternate-Bold.woff'); } 
+
+body {
+    color: white;
+    font-family: 'DIN Alternate', sans-serif;
+    background-color: #0A1715;
+    display: grid;
+    /* grid-template-columns: auto auto; */
+    gap: 50px;
+}
+
+.container {
+    display: grid;
+    place-items: center
+}
+
+
+.download-btn {
+    background-color: #808e9b; /* Green color */
+    color: #ffffff; /* White text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for the button */
+    font-family: 'Arial', sans-serif; /* Font family */
+    font-size: 16px; /* Font size */
+    display: flex; /* Flexbox to align icon and text */
+    align-items: center; /* Center alignment */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    cursor: pointer; /* Pointer cursor on hover */
+    max-width: 350px;
+  }
+  
+.download-btn .icon {
+margin-right: 10px; /* Space between icon and text */
+font-size: 20px; /* Icon size */
+}
+
+.download-btn:hover {
+background-color: #626d77; /* Darker green on hover */
+}
+
+.download-btn:active {
+box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2); /* Reduced shadow on click */
+transform: translateY(2px); /* Button pressed effect */
+}
+
+#emissary-section h2,
+#drawbridge-section h2
+{
+    margin-top: 0;
+}
+
+.grid-list {
+    display: grid;
+    grid-auto-flow: column;
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin-top: 15px; 
+  }
+  
+  .grid-list li {
+    margin: 0 10px; /* Add some spacing between items, adjust as needed */
+  }
+
+li a {
+    text-decoration: none; /* Remove underlining */
+}
